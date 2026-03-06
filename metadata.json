@@ -1,0 +1,5 @@
+{
+  "name": "Kalkulator RAB Jalan Rabat Beton",
+  "description": "Aplikasi untuk menghitung Rencana Anggaran Biaya (RAB) pekerjaan jalan rabat beton berdasarkan koefisien SNI 7394:2008.",
+  "requestFramePermissions": []
+}
