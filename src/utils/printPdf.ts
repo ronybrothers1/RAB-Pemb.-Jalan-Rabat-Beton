@@ -39,26 +39,26 @@ export function printPDF(result: CalculationResult | null) {
   @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
   * { box-sizing: border-box; margin:0; padding:0; }
   body { font-family: Arial, sans-serif; font-size: 10pt; color: #111; }
-  .doc-header { text-align:center; border-bottom: 2.5px solid #1B4FD8; padding-bottom:10px; margin-bottom:14px; }
-  .doc-header h1 { font-size:13pt; font-weight:800; color:#1B4FD8; letter-spacing:-0.01em; }
+  .doc-header { text-align:center; border-bottom: 2.5px solid #0D9488; padding-bottom:10px; margin-bottom:14px; }
+  .doc-header h1 { font-size:13pt; font-weight:800; color:#0D9488; letter-spacing:-0.01em; }
   .doc-header p { font-size:9pt; color:#555; margin-top:2px; }
-  .sni-note { font-size:8pt; color:#059669; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:4px; padding:4px 10px; margin-bottom:12px; text-align:center; }
+  .sni-note { font-size:8pt; color:#0F766E; background:#F0FDFA; border:1px solid #99F6E4; border-radius:4px; padding:4px 10px; margin-bottom:12px; text-align:center; }
   .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 24px; margin-bottom:14px; font-size:9pt; }
   .info-grid .lbl { font-weight:700; color:#555; }
   .stats { display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap; }
   .stat { border:1px solid #ddd; border-radius:5px; padding:6px 12px; font-size:8.5pt; min-width:100px; }
-  .stat .sv { font-size:11pt; font-weight:800; color:#1B4FD8; }
+  .stat .sv { font-size:11pt; font-weight:800; color:#0D9488; }
   .stat .sl { font-size:7.5pt; color:#888; text-transform:uppercase; letter-spacing:.04em; }
   table { width:100%; border-collapse:collapse; font-size:8.5pt; }
-  th { background:#1B4FD8; color:#fff; font-weight:700; padding:7px 8px; text-align:left; font-size:8pt; letter-spacing:.03em; text-transform:uppercase; }
+  th { background:#0D9488; color:#fff; font-weight:700; padding:7px 8px; text-align:left; font-size:8pt; letter-spacing:.03em; text-transform:uppercase; }
   th:not(:first-child) { border-left:1px solid rgba(255,255,255,0.2); }
   td { padding:6px 8px; border-bottom:1px solid #eee; vertical-align:middle; }
-  tr:hover td { background:#f9fbff; }
-  tr.h td { background:#EFF6FF; font-weight:700; color:#1338A6; }
+  tr:hover td { background:#F0FDFA; }
+  tr.h td { background:#F0FDFA; font-weight:700; color:#0F766E; }
   tr.s td { background:#F8FAFC; color:#888; font-style:italic; font-size:8pt; padding:4px 8px; }
   tr.tot td { background:#0F172A; color:#fff; font-weight:700; }
   tr.oh td { background:#FEF3C7; color:#92400E; }
-  tr.grand td { background:#1B4FD8; color:#fff; font-weight:800; font-size:10pt; }
+  tr.grand td { background:#0D9488; color:#fff; font-weight:800; font-size:10pt; }
   .r { text-align:right; font-family:'Courier New',monospace; }
   .signatures { display:flex; justify-content:space-between; margin-top:40px; font-size:9pt; }
   .sig-block { text-align:center; }

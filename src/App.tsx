@@ -296,7 +296,7 @@ export default function App() {
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
             
             {/* HERO */}
-            <header className="relative bg-gradient-to-br from-slate-900 via-blue-700 to-sky-500 dark:from-slate-950 dark:via-blue-900 dark:to-sky-800 pt-10 pb-12 px-6 text-center overflow-hidden">
+            <header className="relative bg-gradient-to-br from-teal-500 via-cyan-500 to-sky-500 dark:from-slate-900 dark:via-teal-900 dark:to-cyan-900 pt-10 pb-12 px-6 text-center overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")` }}></div>
                 
                 <div className="absolute top-4 right-5">
@@ -307,11 +307,11 @@ export default function App() {
                 </div>
 
                 <div className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white/90 text-[0.72rem] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full mb-3.5">
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span> Kalkulator RAB Pro
+                    <span className="w-1.5 h-1.5 bg-teal-300 rounded-full"></span> Kalkulator RAB Pro
                 </div>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight mb-2">RAB Jalan Rabat Beton K-175 s/d K-350</h1>
-                <p className="text-white/70 text-sm max-w-lg mx-auto mb-3">Estimasi biaya profesional untuk kontraktor — lengkap dengan overhead, profit, dan PPN</p>
-                <div className="inline-flex items-center gap-1.5 bg-emerald-400/15 border border-emerald-400/35 text-emerald-300 text-[0.68rem] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
+                <p className="text-white/90 dark:text-white/70 text-sm max-w-lg mx-auto mb-3">Estimasi biaya profesional untuk kontraktor — lengkap dengan overhead, profit, dan PPN</p>
+                <div className="inline-flex items-center gap-1.5 bg-white/10 dark:bg-teal-400/15 border border-white/20 dark:border-teal-400/35 text-white dark:text-teal-300 text-[0.68rem] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
                     ✅ Koefisien SNI 7394:2008 · K-175 s/d K-350
                 </div>
             </header>
@@ -394,14 +394,14 @@ export default function App() {
                     </div>
                 </Card>
 
-                <div className="flex flex-wrap gap-2.5 mt-6">
-                    <button onClick={calculateRAB} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm bg-blue-600 hover:bg-blue-700 text-white shadow-[0_2px_8px_rgba(37,99,235,0.28)] hover:-translate-y-px transition-all">
+                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 mt-6">
+                    <button onClick={calculateRAB} className="col-span-2 sm:flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-600/20 hover:-translate-y-0.5 transition-all">
                         <Calculator className="w-4 h-4" /> Hitung RAB
                     </button>
-                    <button onClick={fillExampleData} className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border-1.5 border-slate-200 dark:border-slate-700 transition-all">
+                    <button onClick={fillExampleData} className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
                         <ClipboardList className="w-4 h-4" /> Data Contoh
                     </button>
-                    <button onClick={resetForm} className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border-1.5 border-slate-200 dark:border-slate-700 transition-all">
+                    <button onClick={resetForm} className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
                         <RotateCcw className="w-4 h-4" /> Reset
                     </button>
                 </div>

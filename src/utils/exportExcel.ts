@@ -33,15 +33,15 @@ export function exportXLSX(result: CalculationResult | null) {
         const t = { style:'thin',   color:{rgb:'CBD5E1'} };
         return { top:m, bottom:m, left:m, right:m };
     };
-    const BDThick = (rgb='1B4FD8') => {
-        const s = { style:'medium', color:{rgb} };
-        return { top:s, bottom:s, left:s, right:s };
-    };
+    const bdThickTeal = { top:{style:'medium',color:{rgb:'0D9488'}},
+                          bottom:{style:'medium',color:{rgb:'0D9488'}},
+                          left:{style:'medium',color:{rgb:'0D9488'}},
+                          right:{style:'medium',color:{rgb:'0D9488'}} };
     const FMT_IDR  = '#,##0';
     const FMT_D3   = '#,##0.000';
 
     // Warna
-    const NAVY='0F172A', BLUE='1E40AF', BLUE_LT='DBEAFE', BLUE_D='1E3A8A';
+    const NAVY='0F172A', TEAL='0D9488', TEAL_LT='CCFBF1', TEAL_D='0F766E';
     const SLATE='334155', SL_LT='F1F5F9', SL_MED='CBD5E1';
     const WHITE='FFFFFF', YEL_LT='FEFCE8';
     const ORG_LT='FFF7ED', AMBER='B45309';
@@ -77,7 +77,7 @@ export function exportXLSX(result: CalculationResult | null) {
         { v:'RENCANA ANGGARAN BIAYA (RAB) — PEMBANGUNAN JALAN RABAT BETON',
           t:'s', s:{ font:{name:'Arial',sz:14,bold:true,color:{rgb:WHITE}},
                      fill:FL(NAVY), alignment:AL('center','center',true),
-                     border:BDThick(NAVY) } },
+                     border:bdThickTeal } },
         CE(),CE(),CE(),CE(),CE()
     ]); merge(r,0,r,5); r++;
 
@@ -85,7 +85,7 @@ export function exportXLSX(result: CalculationResult | null) {
     aoa.push([
         { v:`Mutu Beton ${mutuLabel} (Tidak Bertulang)  ·  fc' ${koef.fc} MPa  ·  Koefisien SNI 7394:2008 ${koef.ref}`,
           t:'s', s:{ font:{name:'Arial',sz:9,color:{rgb:WHITE}},
-                     fill:FL(BLUE), alignment:AL('center','center',true),
+                     fill:FL(TEAL), alignment:AL('center','center',true),
                      border:BD('thin') } },
         CE(),CE(),CE(),CE(),CE()
     ]); merge(r,0,r,5); r++;
@@ -128,18 +128,18 @@ export function exportXLSX(result: CalculationResult | null) {
          'Harga per m²',  `Rp ${fmtNum(Math.round(hargaPerM2))}`],
     ];
     dimRows.forEach(([l1,v1,l2,v2]) => {
-        const brd = { top:{style:'thin',color:{rgb:'93C5FD'}},
-                      bottom:{style:'thin',color:{rgb:'93C5FD'}},
-                      left:{style:'thin',color:{rgb:'93C5FD'}},
-                      right:{style:'thin',color:{rgb:'93C5FD'}} };
+        const brd = { top:{style:'thin',color:{rgb:'5EEAD4'}},
+                      bottom:{style:'thin',color:{rgb:'5EEAD4'}},
+                      left:{style:'thin',color:{rgb:'5EEAD4'}},
+                      right:{style:'thin',color:{rgb:'5EEAD4'}} };
         aoa.push([
-            { v:l1, t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
-              fill:FL(BLUE_LT), alignment:AL('left'), border:brd } },
+            { v:l1, t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
+              fill:FL(TEAL_LT), alignment:AL('left'), border:brd } },
             { v:v1, t:'s', s:{font:{name:'Arial',sz:9,bold:true},
               fill:FL(WHITE), alignment:AL('right'), border:brd } },
             CE(),
-            { v:l2, t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
-              fill:FL(BLUE_LT), alignment:AL('left'), border:brd } },
+            { v:l2, t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
+              fill:FL(TEAL_LT), alignment:AL('left'), border:brd } },
             { v:v2, t:'s', s:{font:{name:'Arial',sz:9,bold:true},
               fill:FL(WHITE), alignment:AL('right'), border:brd } },
             CE(),
@@ -170,14 +170,14 @@ export function exportXLSX(result: CalculationResult | null) {
     let alt = false;
     rows.forEach(row => {
         const rtype = row.type || '';
-        const bdBlue = {
-            top:{style:'thin',color:{rgb:'93C5FD'}},
-            bottom:{style:'thin',color:{rgb:'93C5FD'}},
-            left:{style:'medium',color:{rgb:'1E40AF'}},
-            right:{style:'thin',color:{rgb:'93C5FD'}}
+        const bdTeal = {
+            top:{style:'thin',color:{rgb:'5EEAD4'}},
+            bottom:{style:'thin',color:{rgb:'5EEAD4'}},
+            left:{style:'medium',color:{rgb:'0D9488'}},
+            right:{style:'thin',color:{rgb:'5EEAD4'}}
         };
-        const bdBlueR = { ...bdBlue, left:{style:'thin',color:{rgb:'93C5FD'}},
-                          right:{style:'medium',color:{rgb:'1E40AF'}} };
+        const bdTealR = { ...bdTeal, left:{style:'thin',color:{rgb:'5EEAD4'}},
+                          right:{style:'medium',color:{rgb:'0D9488'}} };
         const bdGray = {
             top:{style:'hair',color:{rgb:'E2E8F0'}}, bottom:{style:'hair',color:{rgb:'E2E8F0'}},
             left:{style:'medium',color:{rgb:'94A3B8'}}, right:{style:'medium',color:{rgb:'94A3B8'}}
@@ -195,18 +195,18 @@ export function exportXLSX(result: CalculationResult | null) {
 
         if (rtype === 'header') {
             aoa.push([
-                { v:row.no||'', t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE}},
-                  fill:FL(YEL_LT), alignment:AL('center'), border:bdBlue } },
-                { v:row.uraian||'', t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
+                { v:row.no||'', t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL}},
+                  fill:FL(YEL_LT), alignment:AL('center'), border:bdTeal } },
+                { v:row.uraian||'', t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
                   fill:FL(YEL_LT), alignment:AL('left','center',true), border:BD('thin')} },
-                { v:volNum, t:'n', z:FMT_D3, s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
+                { v:volNum, t:'n', z:FMT_D3, s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
                   fill:FL(YEL_LT), alignment:AL('right'), border:BD('thin')} },
-                { v:row.sat||'', t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
+                { v:row.sat||'', t:'s', s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
                   fill:FL(YEL_LT), alignment:AL('center'), border:BD('thin')} },
-                { v:hsNum, t:'n', z:FMT_IDR, s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
+                { v:hsNum, t:'n', z:FMT_IDR, s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
                   fill:FL(YEL_LT), alignment:AL('right'), border:BD('thin')} },
-                { v:jmlNum, t:'n', z:FMT_IDR, s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
-                  fill:FL(YEL_LT), alignment:AL('right'), border:bdBlueR} },
+                { v:jmlNum, t:'n', z:FMT_IDR, s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
+                  fill:FL(YEL_LT), alignment:AL('right'), border:bdTealR} },
             ]); alt = false;
 
         } else if (rtype === 'sub') {
@@ -294,36 +294,36 @@ export function exportXLSX(result: CalculationResult | null) {
     });
 
     // ── GRAND TOTAL ──────────────────────────────────────────
-    const bdGT  = BDThick(BLUE_D);
-    const bdGTR = BDThick(BLUE_D);
+    const bdGT  = bdThickTeal;
+    const bdGTR = bdThickTeal;
     aoa.push([
         { v:'TOTAL AKHIR RAB  (termasuk OH, Profit & PPN)', t:'s',
           s:{font:{name:'Arial',sz:12,bold:true,color:{rgb:WHITE}},
-             fill:FL(BLUE), alignment:AL('right'), border:bdGT} },
+             fill:FL(TEAL), alignment:AL('right'), border:bdGT} },
         CE(),CE(),CE(),CE(),
         { v:grandTotal, t:'n', z:FMT_IDR,
           s:{font:{name:'Arial',sz:12,bold:true,color:{rgb:WHITE}},
-             fill:FL(BLUE), alignment:AL('right'), border:bdGTR} }
+             fill:FL(TEAL), alignment:AL('right'), border:bdGTR} }
     ]);
     merge(r,0,r,4); r++;
 
     // Harga per m²
     aoa.push([
         { v:'Harga Satuan per m² Jalan', t:'s',
-          s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
-             fill:FL(BLUE_LT), alignment:AL('right'),
-             border:{top:{style:'thin',color:{rgb:'93C5FD'}},
-                     bottom:{style:'thin',color:{rgb:'93C5FD'}},
-                     left:{style:'medium',color:{rgb:'93C5FD'}},
-                     right:{style:'hair',color:{rgb:'93C5FD'}}} } },
+          s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
+             fill:FL(TEAL_LT), alignment:AL('right'),
+             border:{top:{style:'thin',color:{rgb:'5EEAD4'}},
+                     bottom:{style:'thin',color:{rgb:'5EEAD4'}},
+                     left:{style:'medium',color:{rgb:'5EEAD4'}},
+                     right:{style:'hair',color:{rgb:'5EEAD4'}}} } },
         CE(),CE(),CE(),CE(),
         { v:Math.round(hargaPerM2), t:'n', z:FMT_IDR,
-          s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
-             fill:FL(BLUE_LT), alignment:AL('right'),
-             border:{top:{style:'thin',color:{rgb:'93C5FD'}},
-                     bottom:{style:'thin',color:{rgb:'93C5FD'}},
-                     left:{style:'hair',color:{rgb:'93C5FD'}},
-                     right:{style:'medium',color:{rgb:'93C5FD'}}} } }
+          s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
+             fill:FL(TEAL_LT), alignment:AL('right'),
+             border:{top:{style:'thin',color:{rgb:'5EEAD4'}},
+                     bottom:{style:'thin',color:{rgb:'5EEAD4'}},
+                     left:{style:'hair',color:{rgb:'5EEAD4'}},
+                     right:{style:'medium',color:{rgb:'5EEAD4'}}} } }
     ]);
     merge(r,0,r,4); r++;
 
@@ -445,7 +445,7 @@ export function exportXLSX(result: CalculationResult | null) {
          fill:FL(NAVY),alignment:AL('center'),border:BDM()}},CE() );
     mg2(r2-1,0,1);
     p2( {v:namaProyek,t:'s',s:{font:{name:'Arial',sz:9,color:{rgb:WHITE}},
-         fill:FL(BLUE),alignment:AL('center')}},CE() );
+         fill:FL(TEAL),alignment:AL('center')}},CE() );
     mg2(r2-1,0,1);
     p2( {v:`Mutu ${mutuLabel}  ·  fc' ${koef.fc} MPa  ·  TA ${tahunAng}  ·  SNI 7394:2008`,
          t:'s',s:{font:{name:'Arial',sz:8.5,color:{rgb:SL_MED}},
@@ -455,9 +455,9 @@ export function exportXLSX(result: CalculationResult | null) {
 
     // Header
     p2( {v:'Komponen Biaya',t:'s',s:{font:{name:'Arial',sz:10,bold:true,color:{rgb:WHITE}},
-         fill:FL(NAVY),alignment:AL('center'),border:BDThick(NAVY)}},
+         fill:FL(NAVY),alignment:AL('center'),border:bdThickTeal}},
         {v:'Nilai (Rp)',t:'s',s:{font:{name:'Arial',sz:10,bold:true,color:{rgb:WHITE}},
-         fill:FL(NAVY),alignment:AL('center'),border:BDThick(NAVY)}} );
+         fill:FL(NAVY),alignment:AL('center'),border:bdThickTeal}} );
 
     const comp2: any[] = [['Subtotal Biaya Konstruksi',subtotal,SL_LT,'0F172A',false]];
     if (pctOH  > 0) comp2.push([`+ Overhead (${fmtNum(pctOH*100, 1)}% × Subtotal)`,  ohVal,  ORG_LT, AMBER, false]);
@@ -465,11 +465,11 @@ export function exportXLSX(result: CalculationResult | null) {
     if (pctOH>0 && pctPrf>0)
         comp2.push([`= Total OH + Profit (${fmtNum((pctOH+pctPrf)*100, 1)}%)`,ohVal+prfVal,'FED7AA','C2410C',true]);
     if (pctPPN > 0) comp2.push([`+ PPN (${fmtNum(pctPPN*100, 1)}%)`,ppnVal,RED_LT,RED_D,false]);
-    comp2.push(['TOTAL AKHIR RAB', grandTotal, BLUE, WHITE, true]);
+    comp2.push(['TOTAL AKHIR RAB', grandTotal, TEAL, WHITE, true]);
 
     comp2.forEach(([lbl,val,bg_c,fg_c,isBold]) => {
         const sz = isBold ? 11 : 9;
-        const brd = isBold ? BDThick('1E40AF') : BD('thin');
+        const brd = isBold ? bdThickTeal : BD('thin');
         p2( {v:lbl,t:'s',s:{font:{name:'Arial',sz,bold:isBold,color:{rgb:fg_c}},
              fill:FL(bg_c),alignment:AL('left','center',true),border:brd}},
             {v:val,t:'n',z:FMT_IDR,s:{font:{name:'Arial',sz,bold:isBold,color:{rgb:fg_c}},
@@ -477,11 +477,11 @@ export function exportXLSX(result: CalculationResult | null) {
     });
 
     pe2(1);
-    p2( {v:'Harga Satuan per m² Jalan',t:'s',s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
-         fill:FL(BLUE_LT),alignment:AL('left'),border:BD('thin')}},
+    p2( {v:'Harga Satuan per m² Jalan',t:'s',s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
+         fill:FL(TEAL_LT),alignment:AL('left'),border:BD('thin')}},
         {v:Math.round(hargaPerM2),t:'n',z:FMT_IDR,
-         s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:BLUE_D}},
-         fill:FL(BLUE_LT),alignment:AL('right'),border:BD('thin')}} );
+         s:{font:{name:'Arial',sz:9,bold:true,color:{rgb:TEAL_D}},
+         fill:FL(TEAL_LT),alignment:AL('right'),border:BD('thin')}} );
     pe2(1);
 
     // Info teknis

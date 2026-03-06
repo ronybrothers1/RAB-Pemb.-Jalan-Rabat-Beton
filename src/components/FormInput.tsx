@@ -13,7 +13,7 @@ export function FormInput({ label, prefixText, suffixText, sniTag, className, ..
             <label className="text-xs font-semibold text-slate-600 dark:text-slate-400">
                 {label}
                 {sniTag && (
-                    <span className="text-[0.65rem] bg-emerald-100/80 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 rounded px-1.5 py-0.5 ml-1.5 font-bold tracking-wider">
+                    <span className="text-[0.65rem] bg-teal-100/80 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400 rounded px-1.5 py-0.5 ml-1.5 font-bold tracking-wider">
                         {sniTag}
                     </span>
                 )}
@@ -25,7 +25,7 @@ export function FormInput({ label, prefixText, suffixText, sniTag, className, ..
                     </span>
                 )}
                 <input
-                    className={`w-full border-1.5 border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-800 transition-all focus:outline-none focus:border-blue-500 focus:ring-3 focus:ring-blue-500/10 hover:not(:focus):border-slate-300 dark:hover:not(:focus):border-slate-600 py-2.5 ${prefixText ? 'pl-8' : 'pl-3'} ${suffixText ? 'pr-8' : 'pr-3'} font-mono ${className || ''}`}
+                    className={`w-full border-1.5 border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-800 transition-all focus:outline-none focus:border-teal-500 focus:ring-3 focus:ring-teal-500/10 hover:not(:focus):border-slate-300 dark:hover:not(:focus):border-slate-600 py-2.5 ${prefixText ? 'pl-8' : 'pl-3'} ${suffixText ? 'pr-8' : 'pr-3'} font-mono ${className || ''}`}
                     {...props}
                 />
                 {suffixText && (

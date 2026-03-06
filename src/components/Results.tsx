@@ -52,9 +52,9 @@ export function Results({ result, onPrint, onExport }: ResultsProps) {
                     { label: 'Harga/m²', value: 'Rp ' + fmt(hargaPerM2), unit: 'per m² jalan', hl: true },
                     { label: 'Mutu Beton', value: mutuLabel, unit: 'SNI 7394:2008' },
                 ].map((s, i) => (
-                    <div key={i} className={`bg-white dark:bg-slate-800 border ${s.hl ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-slate-200 dark:border-slate-700'} rounded-xl p-3.5 shadow-sm transition-colors`}>
+                    <div key={i} className={`bg-white dark:bg-slate-800 border ${s.hl ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' : 'border-slate-200 dark:border-slate-700'} rounded-xl p-3.5 shadow-sm transition-colors`}>
                         <div className="text-[0.72rem] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">{s.label}</div>
-                        <div className={`text-lg font-extrabold font-mono tracking-tight ${s.hl ? 'text-blue-600 dark:text-blue-400' : 'text-slate-900 dark:text-slate-100'}`}>{s.value}</div>
+                        <div className={`text-lg font-extrabold font-mono tracking-tight ${s.hl ? 'text-teal-600 dark:text-teal-400' : 'text-slate-900 dark:text-slate-100'}`}>{s.value}</div>
                         <div className="text-[0.72rem] text-slate-500 dark:text-slate-400 font-medium mt-0.5">{s.unit}</div>
                     </div>
                 ))}
@@ -77,13 +77,13 @@ export function Results({ result, onPrint, onExport }: ResultsProps) {
                             {rows.map((r, i) => {
                                 if (r.type === 'header') {
                                     return (
-                                        <tr key={i} className="bg-blue-50 dark:bg-blue-900/20 border-b border-slate-200 dark:border-slate-700">
-                                            <td className="py-2.5 px-3.5 font-bold text-blue-600 dark:text-blue-400 text-[0.83rem]">{r.no}</td>
-                                            <td className="py-2.5 px-3.5 font-bold text-blue-600 dark:text-blue-400 text-[0.83rem]">{r.uraian}</td>
-                                            <td className="py-2.5 px-3.5 text-right font-mono font-medium text-blue-600 dark:text-blue-400 text-[0.83rem]">{r.vol}</td>
-                                            <td className="py-2.5 px-3.5 font-bold text-blue-600 dark:text-blue-400 text-[0.83rem]">{r.sat}</td>
-                                            <td className="py-2.5 px-3.5 text-right font-mono font-medium text-blue-600 dark:text-blue-400 text-[0.83rem]">{fmt(r.hs)}</td>
-                                            <td className="py-2.5 px-3.5 text-right font-mono font-medium text-blue-600 dark:text-blue-400 text-[0.83rem]">{fmt(r.jml)}</td>
+                                        <tr key={i} className="bg-teal-50 dark:bg-teal-900/20 border-b border-slate-200 dark:border-slate-700">
+                                            <td className="py-2.5 px-3.5 font-bold text-teal-700 dark:text-teal-400 text-[0.83rem]">{r.no}</td>
+                                            <td className="py-2.5 px-3.5 font-bold text-teal-700 dark:text-teal-400 text-[0.83rem]">{r.uraian}</td>
+                                            <td className="py-2.5 px-3.5 text-right font-mono font-medium text-teal-700 dark:text-teal-400 text-[0.83rem]">{r.vol}</td>
+                                            <td className="py-2.5 px-3.5 font-bold text-teal-700 dark:text-teal-400 text-[0.83rem]">{r.sat}</td>
+                                            <td className="py-2.5 px-3.5 text-right font-mono font-medium text-teal-700 dark:text-teal-400 text-[0.83rem]">{fmt(r.hs)}</td>
+                                            <td className="py-2.5 px-3.5 text-right font-mono font-medium text-teal-700 dark:text-teal-400 text-[0.83rem]">{fmt(r.jml)}</td>
                                         </tr>
                                     );
                                 } else if (r.type === 'sub') {
@@ -132,9 +132,9 @@ export function Results({ result, onPrint, onExport }: ResultsProps) {
                     </div>
                 )}
                 {pctOH > 0 && pctPrf > 0 && (
-                    <div className="flex justify-between items-center py-3 px-4 border-b-2 border-slate-200 dark:border-slate-600 bg-blue-50 dark:bg-blue-900/20 text-[0.85rem]">
-                        <span className="text-blue-600 dark:text-blue-400 font-bold text-[0.82rem]">Total OH + Profit ({fmtNum((pctOH + pctPrf) * 100, 1)}% × Subtotal)</span>
-                        <span className="font-mono font-extrabold text-blue-600 dark:text-blue-400">Rp {fmt(ohVal + prfVal)}</span>
+                    <div className="flex justify-between items-center py-3 px-4 border-b-2 border-slate-200 dark:border-slate-600 bg-teal-50 dark:bg-teal-900/20 text-[0.85rem]">
+                        <span className="text-teal-700 dark:text-teal-400 font-bold text-[0.82rem]">Total OH + Profit ({fmtNum((pctOH + pctPrf) * 100, 1)}% × Subtotal)</span>
+                        <span className="font-mono font-extrabold text-teal-700 dark:text-teal-400">Rp {fmt(ohVal + prfVal)}</span>
                     </div>
                 )}
                 {pctPPN > 0 && (
@@ -143,27 +143,27 @@ export function Results({ result, onPrint, onExport }: ResultsProps) {
                         <span className="font-mono font-bold text-slate-900 dark:text-slate-100">Rp {fmt(ppnVal)}</span>
                     </div>
                 )}
-                <div className="flex justify-between items-center py-3.5 px-4 bg-gradient-to-br from-slate-900 to-blue-700 dark:from-slate-950 dark:to-blue-900 text-white rounded-b-xl">
+                <div className="flex justify-between items-center py-3.5 px-4 bg-gradient-to-br from-teal-600 to-cyan-600 dark:from-slate-900 dark:to-teal-900 text-white rounded-b-xl">
                     <span className="font-bold text-[0.9rem]">TOTAL AKHIR RAB</span>
                     <span className="font-mono font-extrabold text-[1.05rem]">Rp {fmt(grandTotal)}</span>
                 </div>
             </div>
 
-            <div className="sticky bottom-0 z-10 flex items-center justify-between flex-wrap gap-2.5 bg-gradient-to-br from-slate-900 to-blue-700 dark:from-slate-950 dark:to-blue-900 rounded-xl p-4 sm:p-5 mt-5 shadow-[0_-4px_20px_rgba(27,79,216,0.25)]">
+            <div className="sticky bottom-0 z-10 flex items-center justify-between flex-wrap gap-2.5 bg-gradient-to-br from-teal-600 to-cyan-600 dark:from-slate-900 dark:to-teal-900 rounded-xl p-4 sm:p-5 mt-5 shadow-lg shadow-teal-600/20">
                 <div>
-                    <div className="text-[0.8rem] font-bold text-white/55 tracking-wider uppercase">Total Akhir RAB</div>
-                    <div className="text-[0.72rem] text-white/35 mt-0.5">{sublabel}</div>
+                    <div className="text-[0.8rem] font-bold text-white/70 tracking-wider uppercase">Total Akhir RAB</div>
+                    <div className="text-[0.72rem] text-white/60 mt-0.5">{sublabel}</div>
                 </div>
                 <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                     Rp {fmt(animatedTotal)}
                 </div>
             </div>
 
-            <div className="flex flex-wrap gap-2.5 mt-5">
-                <button onClick={onPrint} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm bg-emerald-500 hover:bg-emerald-600 text-white shadow-[0_2px_8px_rgba(16,185,129,0.25)] hover:-translate-y-px transition-all">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 mt-5">
+                <button onClick={onPrint} className="col-span-2 sm:flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-teal-500 hover:bg-teal-600 text-white shadow-md shadow-teal-500/20 hover:-translate-y-0.5 transition-all">
                     🖨️ Cetak / PDF
                 </button>
-                <button onClick={onExport} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm bg-green-800 hover:bg-green-900 text-white shadow-[0_2px_8px_rgba(22,101,52,0.25)] hover:-translate-y-px transition-all">
+                <button onClick={onExport} className="col-span-2 sm:flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-cyan-600 hover:bg-cyan-700 text-white shadow-md shadow-cyan-600/20 hover:-translate-y-0.5 transition-all">
                     📊 Export Excel (.xlsx)
                 </button>
             </div>
