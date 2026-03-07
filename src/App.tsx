@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Calculator, ClipboardList, RotateCcw } from 'lucide-react';
 import { FormData, CalculationResult } from './types';
-import { MUTU_KOEF, UPAH_BETON_NORMAL, UPAH_BETON_TINGGI, UPAH_BEKISTING, BAHAN_BEKISTING, UPAH_SIRTU } from './constants';
+import { MUTU_KOEF, UPAH_BETON_NORMAL, UPAH_BETON_TINGGI, UPAH_BEKISTING, BAHAN_BEKISTING, UPAH_SIRTU, BJ_PASIR, BJ_BATU } from './constants';
 import { fmt, fmtNum, safe } from './utils/format';
 import { exportXLSX } from './utils/exportExcel';
 import { printPDF } from './utils/printPdf';
@@ -287,7 +287,7 @@ export default function App() {
             { uraian:'Tukang Batu', vol:fmtNum(bt_tk, 3), sat:'OH', hs:uTk, jml:bt_tkH },
             { uraian:'Kepala Tukang', vol:fmtNum(bt_kt, 3), sat:'OH', hs:uKt, jml:bt_ktH },
             { uraian:'Mandor', vol:fmtNum(bt_mn, 3), sat:'OH', hs:uMd, jml:bt_mnH },
-            { type:'sub', uraian:`Bahan (SNI 7394:2008 ${koef.ref} — PC=${koef.pcKg} kg/m³ → ${fmtNum(koef.semen, 3)} zak | PB=${Math.round(koef.pasir*1400)} kg/m³ → ${fmtNum(koef.pasir, 5)} m³ | KR=${Math.round(koef.batu*1500)} kg/m³ → ${fmtNum(koef.batu, 5)} m³ | Air=${koef.air} ltr | fc'=${koef.fc} | w/c=${koef.wc})` },
+            { type:'sub', uraian:`Bahan (SNI 7394:2008 ${koef.ref} — PC=${koef.pcKg} kg/m³ → ${fmtNum(koef.semen, 3)} zak | PB=${Math.round(koef.pasir*BJ_PASIR)} kg/m³ → ${fmtNum(koef.pasir, 5)} m³ | KR=${Math.round(koef.batu*BJ_BATU)} kg/m³ → ${fmtNum(koef.batu, 5)} m³ | Air=${koef.air} ltr | fc'=${koef.fc} | w/c=${koef.wc})` },
             { uraian:`Semen Portland (${mutuLabel})`, vol:fmtNum(bt_sm, 3), sat:'zak', hs:hSm, jml:bt_smH },
             { uraian:'Pasir Beton', vol:fmtNum(bt_ps, 3), sat:'m³', hs:hPs, jml:bt_psH },
             { uraian:'Batu Pecah 2–3 cm', vol:fmtNum(bt_bt, 3), sat:'m³', hs:hBt, jml:bt_btH },

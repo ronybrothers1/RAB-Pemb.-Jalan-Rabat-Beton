@@ -1,5 +1,5 @@
 import React from 'react';
-import { MUTU_KOEF } from '../constants';
+import { MUTU_KOEF, BJ_PASIR, BJ_BATU } from '../constants';
 import { fmtNum } from '../utils/format';
 
 interface SniInfoBoxProps {
@@ -49,9 +49,9 @@ export function SniInfoBox({ selectedMutu }: SniInfoBoxProps) {
                                     <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{label} {isActive && '✓'}</td>
                                     <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{koef.pcKg}</td>
                                     <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{fmtNum(koef.semen, 3)}</td>
-                                    <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{Math.round(koef.pasir * 1400)}</td>
+                                    <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{Math.round(koef.pasir * BJ_PASIR)}</td>
                                     <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{fmtNum(koef.pasir, 5)}</td>
-                                    <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{Math.round(koef.batu * 1500)}</td>
+                                    <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{Math.round(koef.batu * BJ_BATU)}</td>
                                     <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{fmtNum(koef.batu, 5)}</td>
                                     <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{koef.air}</td>
                                     <td className="py-1.5 px-1.5 font-mono whitespace-nowrap">{koef.wc}</td>

@@ -1,6 +1,6 @@
 export const ZAK_KG = 40;
 export const BJ_PASIR = 1400;
-export const BJ_BATU = 1500;
+export const BJ_BATU = 1350;
 
 export const MUTU_KOEF: Record<string, any> = {
     K175: { semen: 326/ZAK_KG, pasir: 760/BJ_PASIR,  batu: 1029/BJ_BATU, air: 215, pcKg: 326, ref: '§6.5',  wc: '0,66', fc: "14,5 MPa" },
