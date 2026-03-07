@@ -394,14 +394,14 @@ export default function App() {
                     </div>
                 </Card>
 
-                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 mt-6">
-                    <button onClick={calculateRAB} className="col-span-2 sm:flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-600/20 hover:-translate-y-0.5 transition-all">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-8 mb-4">
+                    <button onClick={calculateRAB} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-600/20 hover:-translate-y-0.5 transition-all">
                         <Calculator className="w-4 h-4" /> Hitung RAB
                     </button>
-                    <button onClick={fillExampleData} className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
+                    <button onClick={fillExampleData} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
                         <ClipboardList className="w-4 h-4" /> Data Contoh
                     </button>
-                    <button onClick={resetForm} className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
+                    <button onClick={resetForm} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm transition-all">
                         <RotateCcw className="w-4 h-4" /> Reset
                     </button>
                 </div>

@@ -61,18 +61,19 @@ export function Results({ result, onPrint, onExport }: ResultsProps) {
             </div>
 
             <Card icon="📊" title="Rincian Anggaran Biaya" subtitle={`${result.namaProyek} — ${mutuLabel} — TA ${result.tahunAng}`}>
-                <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm -mx-4 sm:mx-0">
-                    <table className="w-full border-collapse text-sm min-w-[600px]">
-                        <thead>
-                            <tr>
-                                <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-left whitespace-nowrap w-[5%]">No</th>
-                                <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-left whitespace-nowrap w-[37%] border-l border-slate-800">Uraian Pekerjaan</th>
-                                <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-right whitespace-nowrap w-[11%] border-l border-slate-800">Volume</th>
-                                <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-left whitespace-nowrap w-[8%] border-l border-slate-800">Sat.</th>
-                                <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-right whitespace-nowrap w-[18%] border-l border-slate-800">Harga Satuan (Rp)</th>
-                                <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-right whitespace-nowrap w-[21%] border-l border-slate-800">Jumlah (Rp)</th>
-                            </tr>
-                        </thead>
+                <div className="overflow-x-auto -mx-4 sm:mx-0">
+                    <div className="min-w-[650px] border-y sm:border border-slate-200 dark:border-slate-700 sm:rounded-xl overflow-hidden shadow-sm">
+                        <table className="w-full border-collapse text-sm">
+                            <thead>
+                                <tr>
+                                    <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-left whitespace-nowrap w-[5%]">No</th>
+                                    <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-left whitespace-nowrap w-[37%] border-l border-slate-800">Uraian Pekerjaan</th>
+                                    <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-right whitespace-nowrap w-[11%] border-l border-slate-800">Volume</th>
+                                    <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-left whitespace-nowrap w-[8%] border-l border-slate-800">Sat.</th>
+                                    <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-right whitespace-nowrap w-[18%] border-l border-slate-800">Harga Satuan (Rp)</th>
+                                    <th className="bg-slate-900 dark:bg-slate-950 text-slate-400 text-[0.7rem] font-bold tracking-wider uppercase py-3 px-3.5 text-right whitespace-nowrap w-[21%] border-l border-slate-800">Jumlah (Rp)</th>
+                                </tr>
+                            </thead>
                         <tbody>
                             {rows.map((r, i) => {
                                 if (r.type === 'header') {
@@ -111,6 +112,7 @@ export function Results({ result, onPrint, onExport }: ResultsProps) {
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </Card>
 
@@ -149,21 +151,21 @@ export function Results({ result, onPrint, onExport }: ResultsProps) {
                 </div>
             </div>
 
-            <div className="sticky bottom-0 z-10 flex items-center justify-between flex-wrap gap-2.5 bg-gradient-to-br from-teal-600 to-cyan-600 dark:from-slate-900 dark:to-teal-900 rounded-xl p-4 sm:p-5 mt-5 shadow-lg shadow-teal-600/20">
+            <div className="flex items-center justify-between flex-wrap gap-2.5 bg-slate-900 dark:bg-slate-950 border border-slate-800 p-4 sm:p-5 mt-8 shadow-lg rounded-xl sm:rounded-2xl">
                 <div>
-                    <div className="text-[0.8rem] font-bold text-white/70 tracking-wider uppercase">Total Akhir RAB</div>
-                    <div className="text-[0.72rem] text-white/60 mt-0.5">{sublabel}</div>
+                    <div className="text-[0.8rem] font-bold text-slate-300 tracking-wider uppercase">Total Akhir RAB</div>
+                    <div className="text-[0.72rem] text-slate-400 mt-0.5">{sublabel}</div>
                 </div>
-                <div className="font-mono text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                <div className="font-mono text-2xl sm:text-3xl font-extrabold text-teal-400 tracking-tight">
                     Rp {fmt(animatedTotal)}
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 mt-5">
-                <button onClick={onPrint} className="col-span-2 sm:flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-teal-500 hover:bg-teal-600 text-white shadow-md shadow-teal-500/20 hover:-translate-y-0.5 transition-all">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6">
+                <button onClick={onPrint} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-teal-500 hover:bg-teal-600 text-white shadow-md shadow-teal-500/20 hover:-translate-y-0.5 transition-all">
                     🖨️ Cetak / PDF
                 </button>
-                <button onClick={onExport} className="col-span-2 sm:flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-cyan-600 hover:bg-cyan-700 text-white shadow-md shadow-cyan-600/20 hover:-translate-y-0.5 transition-all">
+                <button onClick={onExport} className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-cyan-600 hover:bg-cyan-700 text-white shadow-md shadow-cyan-600/20 hover:-translate-y-0.5 transition-all">
                     📊 Export Excel (.xlsx)
                 </button>
             </div>
