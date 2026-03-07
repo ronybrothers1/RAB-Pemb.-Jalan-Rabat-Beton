@@ -4,7 +4,8 @@ import { fmtNum } from './format';
 
 function unFmt(s: any) {
     if (s === '' || s === undefined || s === null) return 0;
-    const n = parseFloat(String(s).replace(/\./g, '').replace(/,/g, '.'));
+    if (typeof s === 'number') return s;
+    const n = parseFloat(String(s).replace(/[\.\s\u202F\xA0]/g, '').replace(/,/g, '.'));
     return isNaN(n) ? 0 : n;
 }
 
@@ -189,7 +190,7 @@ export function exportXLSX(result: CalculationResult | null) {
         const bdItemR = { ...bdItem, left:{style:'thin',color:{rgb:'CBD5E1'}},
                           right:{style:'medium',color:{rgb:'94A3B8'}} };
 
-        const volNum = parseFloat((row.vol||'0').toString().replace(/\./g,'').replace(',','.')) || 0;
+        const volNum = unFmt(row.vol);
         const hsNum  = unFmt(row.hs);
         const jmlNum = unFmt(row.jml);
 

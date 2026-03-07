@@ -16,11 +16,11 @@ const SAVE_KEY = 'rab-form-v4';
 
 const defaultFormData: FormData = {
     namaProyek: '', lokasiProyek: '', tahunAnggaran: '', penyusun: '',
-    panjang: '', lebar: '', tebal: 0.15, opsiBekisting: '2', mutuBeton: 'K250',
+    panjang: '', lebar: '', tebal: '', opsiBekisting: '', mutuBeton: '',
     upahPekerja: '', upahTukang: '', upahKepalaTukang: '', upahMandor: '',
     hargaSirtu: '', hargaKayu: '', hargaPaku: '', hargaMinyakBekisting: '',
     hargaPlastikCor: '', hargaSemen: '', hargaPasirBeton: '', hargaBatuPecah: '', hargaAir: '',
-    pctOverhead: 10, pctProfit: 10, pctPpn: 11
+    pctOverhead: '', pctProfit: '', pctPpn: ''
 };
 
 export default function App() {
@@ -117,6 +117,16 @@ export default function App() {
 
         if (p <= 0 || l <= 0 || t <= 0) {
             setErrorMsg('Mohon masukkan dimensi jalan yang valid (nilai harus > 0).');
+            return;
+        }
+
+        if (!opsiBekisting) {
+            setErrorMsg('Mohon pilih Opsi Bekisting.');
+            return;
+        }
+
+        if (!mutuBeton) {
+            setErrorMsg('Mohon pilih Mutu Beton.');
             return;
         }
 
@@ -341,11 +351,13 @@ export default function App() {
                         <FormInput type="number" min="0" step="0.01" label="Lebar Jalan" name="lebar" value={formData.lebar} onChange={handleInputChange} suffixText="m" placeholder="0.00" />
                         <FormInput type="number" min="0" step="0.01" label="Tebal Rabat Beton" name="tebal" value={formData.tebal} onChange={handleInputChange} suffixText="m" placeholder="0.15" />
                         <FormSelect label="Opsi Bekisting" name="opsiBekisting" value={formData.opsiBekisting} onChange={handleSelectChange} options={[
+                            { value: '', label: 'Pilih Opsi...' },
                             { value: '2', label: 'Bekisting 2 Sisi (standar)' },
                             { value: '1', label: 'Bekisting 1 Sisi' },
                             { value: '0', label: 'Tanpa Bekisting' }
                         ]} />
                         <FormSelect label="Mutu Beton" name="mutuBeton" value={formData.mutuBeton} onChange={handleSelectChange} sniTag="SNI" options={[
+                            { value: '', label: 'Pilih Mutu...' },
                             { value: 'K175', label: "K-175 (fc' 14,5 MPa)" },
                             { value: 'K200', label: "K-200 (fc' 16,9 MPa)" },
                             { value: 'K225', label: "K-225 (fc' 19,3 MPa)" },
@@ -415,7 +427,8 @@ export default function App() {
             </main>
 
             <footer className="text-center py-6 border-t border-slate-200 dark:border-slate-800">
-                <div className="text-xs text-slate-500 dark:text-slate-400">© 2025 RAB Jalan Rabat Beton | Koefisien SNI 7394:2008</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">© 2025 RAB Jalan Rabat Beton | Koefisien SNI 7394:2008</div>
+                <div className="text-xs font-medium text-slate-600 dark:text-slate-300">Dikembangkan oleh Imam Sahroni Darmawan</div>
             </footer>
         </div>
     );
